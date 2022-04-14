@@ -20,15 +20,15 @@ public class PhraseFilter implements Filter {
         boolean result = false;
         switch (where) {
             case "start":
-            result = phrase.startsWith(where);
+            result = qe.getInfo().startsWith(phrase);
             break;
             
             case "end":
-            result = phrase.endsWith(where);
+            result = qe.getInfo().endsWith(phrase);
             break;
             
             case "any":
-            switch (phrase.indexOf(where)) {
+            switch (qe.getInfo().indexOf(phrase)) {
                 case -1:
                 result = false;
                 break;
@@ -43,4 +43,6 @@ public class PhraseFilter implements Filter {
         
         return result;
     }
+    
+    
 }

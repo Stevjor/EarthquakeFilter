@@ -21,14 +21,24 @@ public class EarthQuakeClient2 {
     //MagnitudeFilter and DepthFilter.
     public ArrayList<QuakeEntry> filter2(ArrayList<QuakeEntry> quakeData, Filter magFiltered, 
     Filter depthFiltered) { 
+        return filterTwoConditions(quakeData, magFiltered, depthFiltered);
+    } 
+    
+    public ArrayList<QuakeEntry> filterTwoConditions(ArrayList<QuakeEntry> quakeData, 
+    Filter condition1, Filter condition2) {
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
         for(QuakeEntry qe : quakeData) { 
-            if (magFiltered.satisfies(qe) && depthFiltered.satisfies(qe)) { 
+            if (condition1.satisfies(qe) && condition2.satisfies(qe)) { 
                 answer.add(qe); 
             } 
         } 
         
         return answer;
+    }
+    
+    public ArrayList<QuakeEntry> filter3(ArrayList<QuakeEntry> quakeData, Filter distFiltered, 
+    Filter phraseFiltered) { 
+        return filterTwoConditions(quakeData, distFiltered, phraseFiltered);
     } 
 
     public void quakesWithFilter() { 
@@ -44,6 +54,8 @@ public class EarthQuakeClient2 {
             System.out.println(qe);
         } */
         
+        /*
+         
         Filter filteredMagnitude = new MagnitudeFilter(4.0, 5.0);
         Filter filteredDepth = new DepthFilter(-35000.0, -12000.0);
         ArrayList<QuakeEntry> quakesFiltered = filter2(list, filteredMagnitude, 
@@ -51,9 +63,22 @@ public class EarthQuakeClient2 {
                                              
         for (QuakeEntry qe : quakesFiltered) {
             System.out.println(qe);
+        }*/
+        
+        Location loc = new Location(35.42, 139.43);
+        double distance = 10000000.0;
+        
+        Filter filteredDistance = new DistanceFilter(loc, distance);
+        Filter filteredPhrase = new PhraseFilter("end", "Japan");
+        ArrayList<QuakeEntry> quakesFiltered = filter2(list, filteredDistance, 
+                                             filteredPhrase);
+                                             
+        for (QuakeEntry qe : quakesFiltered) {
+            System.out.println(qe);
         }
     }
 
+    
     public void createCSV() {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "../data/nov20quakedata.atom";
