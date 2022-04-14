@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=MatchAllFilter
+comment0.text=\r\n\ This\ class\ implements\ Filter\ to\ check\ if\ a\ QuakeEntry's\ element\ satisfy\r\n\ all\ filter\ conditions\ added\ here.\r\n\ \r\n\ Steven\ Jordany\ Guzm\u00E1n\ Andrade.\r\n\ Thursday,\ April\ 14,\ 2022.\r\n
+comment1.params=
+comment1.target=MatchAllFilter()
+comment2.params=f
+comment2.target=void\ addFilter(Filter)
+comment3.params=qe
+comment3.target=boolean\ satisfies(QuakeEntry)
+numComments=4
