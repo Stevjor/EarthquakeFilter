@@ -16,6 +16,18 @@ public class EarthQuakeClient2 {
         
         return answer;
     } 
+    
+    public ArrayList<QuakeEntry> filter2(ArrayList<QuakeEntry> quakeData, Filter magFiltered, 
+    Filter depthFiltered) { 
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+        for(QuakeEntry qe : quakeData) { 
+            if (magFiltered.satisfies(qe) && depthFiltered.satisfies(qe)) { 
+                answer.add(qe); 
+            } 
+        } 
+        
+        return answer;
+    } 
 
     public void quakesWithFilter() { 
         EarthQuakeParser parser = new EarthQuakeParser(); 
@@ -24,11 +36,20 @@ public class EarthQuakeClient2 {
         ArrayList<QuakeEntry> list  = parser.read(source);         
         System.out.println("read data for "+list.size()+" quakes");
 
-        Filter f = new MinMagFilter(4.0); 
+        /*Filter f = new MinMagFilter(4.0); 
         ArrayList<QuakeEntry> m7  = filter(list, f); 
         for (QuakeEntry qe: m7) { 
             System.out.println(qe);
-        } 
+        } */
+        
+        Filter filteredMagnitude = new MagnitudeFilter(4.0, 5.0);
+        Filter filteredDepth = new DepthFilter(-35000.0, -12000.0);
+        ArrayList<QuakeEntry> quakesFiltered = filter2(list, filteredMagnitude, 
+                                             filteredDepth);
+                                             
+        for (QuakeEntry qe : quakesFiltered) {
+            System.out.println(qe);
+        }
     }
 
     public void createCSV() {
