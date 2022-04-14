@@ -1,11 +1,11 @@
 
 /**
- * Write a description of interface Filter here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This is an interface named Filter to test for conditions and get the name
+ * of each class that implements this interface.
  */
 public interface Filter
 {
     public  boolean satisfies(QuakeEntry qe); 
+    
+    public String getName();
 }

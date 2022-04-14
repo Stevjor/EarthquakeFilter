@@ -1,8 +1,12 @@
 #BlueJ class context
 comment0.target=PhraseFilter
-comment0.text=\r\n\ This\ class\ implements\ Filter\ to\ check\ whether\ a\ QuakeEntry's\r\n\ phrase\ is\ found\ at\ the\ specified\ location\ (start,\ end,\ any).\r\n\ \r\n\ Steven\ Jordany\ Guzm\u00E1n\ Andrade\ .\r\n\ Thursday,\ April\ 14,\ 2022.\r\n
+comment0.text=\r\n\ This\ class\ implements\ Filter\ to\ check\ whether\ a\ QuakeEntry's\r\n\ phrase\ is\ found\ at\ the\ specified\ location\ (start,\ end,\ any).\r\n
 comment1.params=whereToSearch\ givenPhrase
 comment1.target=PhraseFilter(java.lang.String,\ java.lang.String)
-comment2.params=qe
-comment2.target=boolean\ satisfies(QuakeEntry)
-numComments=3
+comment2.params=addedName
+comment2.target=void\ setName(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=qe
+comment4.target=boolean\ satisfies(QuakeEntry)
+numComments=5

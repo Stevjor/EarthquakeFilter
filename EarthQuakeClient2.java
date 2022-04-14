@@ -102,9 +102,16 @@ public class EarthQuakeClient2 {
         fileName + ".");
         
         MatchAllFilter maf = new MatchAllFilter();
-        Filter filteredMagnitude = new MagnitudeFilter(0.0, 2.0);
-        Filter filteredDepth = new DepthFilter(-100000.0, -10000.0);
-        Filter filteredPhrase = new PhraseFilter("any", "a");
+        
+        MagnitudeFilter filteredMagnitude = new MagnitudeFilter(0.0, 2.0);
+        filteredMagnitude.setName("Magnitude");
+        
+        DepthFilter filteredDepth = new DepthFilter(-100000.0, -10000.0);
+        filteredDepth.setName("Depth");
+        
+        PhraseFilter filteredPhrase = new PhraseFilter("any", "a");
+        filteredPhrase.setName("Phrase");
+        
         
         maf.addFilter(filteredMagnitude);
         maf.addFilter(filteredDepth);
@@ -115,8 +122,45 @@ public class EarthQuakeClient2 {
         for (QuakeEntry qe : appliedFilters) {
             System.out.println(qe);
         }
+        
+        String names = maf.getName();
+        System.out.println("Filters used are: " + names + ".");
     }
     
+    public void testMatchAllFilter2() {
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String fileName = "nov20quakedatasmall.atom";
+        String source = "data/" + fileName;
+        ArrayList<QuakeEntry> list = parser.read(source);
+        System.out.println("There are " + list.size() + 
+        " earthquakes from the file " + fileName + ".");
+        
+        MatchAllFilter maf = new MatchAllFilter();
+        
+        Location loc = new Location(36.1314, -95.9372);
+        
+        MagnitudeFilter filteredMagnitude = new MagnitudeFilter(0.0, 3.0);
+        filteredMagnitude.setName("Magnitude");
+        
+        DistanceFilter filteredDistance = new DistanceFilter(loc, 10000000);
+        filteredDistance.setName("Distance");
+        
+        PhraseFilter filteredPhrase = new PhraseFilter("any", "Ca");
+        filteredPhrase.setName("Phrase");
+        
+        maf.addFilter(filteredMagnitude);
+        maf.addFilter(filteredDistance);
+        maf.addFilter(filteredPhrase);
+        
+        ArrayList<QuakeEntry> appliedFilters = filter(list, maf);
+        
+        for (QuakeEntry qe : appliedFilters) {
+            System.out.println(qe);
+        }
+        
+        String names = maf.getName();
+        System.out.println("Filters used are: " + names + ".");
+    }
     
     public void createCSV() {
         EarthQuakeParser parser = new EarthQuakeParser();

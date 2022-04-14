@@ -2,9 +2,6 @@ import java.util.ArrayList;
 /**
  * This class implements Filter to check if a QuakeEntry's element satisfy
  * all filter conditions added here.
- * 
- * Steven Jordany Guzmán Andrade.
- * Thursday, April 14, 2022.
  */
 public class MatchAllFilter implements Filter {
     private ArrayList<Filter> list;
@@ -28,5 +25,15 @@ public class MatchAllFilter implements Filter {
         }
         
         return true;
+    }
+    
+    public String getName() {
+        String names = " ";
+        
+        for (Filter ft : list) {
+            names += ft.getName() + " ";
+        }
+        
+        return names;
     }
 }

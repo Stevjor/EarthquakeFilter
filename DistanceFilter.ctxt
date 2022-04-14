@@ -1,8 +1,12 @@
 #BlueJ class context
 comment0.target=DistanceFilter
-comment0.text=\r\n\ This\ class\ implements\ Filter\ to\ check\ whether\ a\ QuakeEntry's\r\n\ distance\ from\ a\ given\ location\ is\ less\ than\ the\ provided\ maximum\r\n\ distance\r\n\ \r\n\ Steven\ Jordany\ Guzm\u00E1n\ Andrade\ .\r\n\ Thursday,\ April\ 14,\ 2022.\r\n
+comment0.text=\r\n\ This\ class\ implements\ Filter\ to\ check\ whether\ a\ QuakeEntry's\r\n\ distance\ from\ a\ given\ location\ is\ less\ than\ the\ provided\ maximum\r\n\ distance\r\n
 comment1.params=currentLoc\ max
 comment1.target=DistanceFilter(Location,\ double)
-comment2.params=qe
-comment2.target=boolean\ satisfies(QuakeEntry)
-numComments=3
+comment2.params=addedName
+comment2.target=void\ setName(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=qe
+comment4.target=boolean\ satisfies(QuakeEntry)
+numComments=5
