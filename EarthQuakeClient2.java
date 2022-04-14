@@ -78,6 +78,45 @@ public class EarthQuakeClient2 {
         }
     }
 
+    /**
+     * Makes use of the MatchAllFilter class to add several filters, and then
+     * uses the filter method to store the QuakeEntry elements in a QuakeEntry's
+     * ArrayList that satisfy the conditions of each filter added. Then it prints
+     * every match.
+       */
+    public void testMatchAllFilter() {
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String fileName = "nov20quakedatasmall.atom";
+        String source = "data/" + fileName;
+        ArrayList<QuakeEntry> list = parser.read(source);
+        
+        /*
+        for (QuakeEntry qe : list){
+            System.out.println(qe);
+        }
+        */
+       
+       
+        System.out.println("There are " + list.size() + 
+        " earthquakes from the source " + 
+        fileName + ".");
+        
+        MatchAllFilter maf = new MatchAllFilter();
+        Filter filteredMagnitude = new MagnitudeFilter(0.0, 2.0);
+        Filter filteredDepth = new DepthFilter(-100000.0, -10000.0);
+        Filter filteredPhrase = new PhraseFilter("any", "a");
+        
+        maf.addFilter(filteredMagnitude);
+        maf.addFilter(filteredDepth);
+        maf.addFilter(filteredPhrase);
+        
+        ArrayList<QuakeEntry> appliedFilters = filter(list, maf);
+        
+        for (QuakeEntry qe : appliedFilters) {
+            System.out.println(qe);
+        }
+    }
+    
     
     public void createCSV() {
         EarthQuakeParser parser = new EarthQuakeParser();
