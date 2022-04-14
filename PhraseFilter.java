@@ -1,4 +1,11 @@
 
+/**
+ * This class implements Filter to check whether a QuakeEntry's
+ * phrase is found at the specified location (start, end, any).
+ * 
+ * Steven Jordany Guzmán Andrade .
+ * Thursday, April 14, 2022.
+ */
 
 public class PhraseFilter implements Filter {
     private String where;

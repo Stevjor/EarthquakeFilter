@@ -1,9 +1,11 @@
 
 /**
- * Write a description of class DistanceFilter here.
+ * This class implements Filter to check whether a QuakeEntry's
+ * distance from a given location is less than the provided maximum
+ * distance
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Steven Jordany Guzmán Andrade .
+ * Thursday, April 14, 2022.
  */
 public class DistanceFilter implements Filter {
     private Location loc;

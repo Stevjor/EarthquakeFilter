@@ -1,6 +1,7 @@
 
 /**
- * Write a description of class DepthFilter here.
+ * This class implements Filter to check if a QuakeEntry's
+ * depth is between the provided minimum and maximum depths.
  * 
  * @author (your name) 
  * @version (a version number or a date)

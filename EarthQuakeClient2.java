@@ -17,6 +17,8 @@ public class EarthQuakeClient2 {
         return answer;
     } 
     
+    //Checks if an ArrayList of quake data satisfies the conditions from the classes
+    //MagnitudeFilter and DepthFilter.
     public ArrayList<QuakeEntry> filter2(ArrayList<QuakeEntry> quakeData, Filter magFiltered, 
     Filter depthFiltered) { 
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();

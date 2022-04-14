@@ -1,9 +1,10 @@
 
 /**
- * Write a description of class MagnitudeFilter here.
+ * This class implements Filter to check if a QuakeEntry's
+ * is between the provided minimum and maximum magnitudes.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Steven Jordany Guzmán Andrade. 
+ * Thursday, April 14, 2022.
  */
 public class MagnitudeFilter implements Filter {
     private double minMag;
